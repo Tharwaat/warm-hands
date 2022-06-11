@@ -17,14 +17,12 @@ const loginSchema = Joi.object().keys({
     password: Joi.string().required().min(6),
 });
 
-const createStatusSchema = Joi.object().keys({
-    phoneNumber: Joi.string().required(),
-    status: Joi.string().required().valid(["online", "offline", "idle"]),
-    accessToken: Joi.string(),
+const tokenValidationSchema = Joi.object().keys({
+    access_token: Joi.string().required(),
 });
 
 export {
     userRegistrationSchema,
     loginSchema,
-    createStatusSchema,
+    tokenValidationSchema,
 };
