@@ -1,0 +1,33 @@
+{
+   "name": "warm-hands",
+   "version": "0.0.1",
+   "description": "Awesome project developed with TypeORM.",
+   "type": "commonjs",
+   "devDependencies": {
+      "@types/bcrypt": "^5.0.0",
+      "@types/express": "^4.17.13",
+      "@types/joi": "^14.3.4",
+      "@types/node": "^16.11.10",
+      "ts-node": "10.7.0",
+      "typescript": "4.5.2"
+   },
+   "dependencies": {
+      "bcrypt": "^5.0.1",
+      "body-parser": "^1.19.0",
+      "celebrate": "^10.1.0",
+      "crypto": "^1.0.1",
+      "dotenv": "^16.0.0",
+      "express": "^4.18.1",
+      "http-status-codes": "^2.2.0",
+      "mysql": "^2.14.1",
+      "reflect-metadata": "^0.1.13",
+      "typeorm": "^0.2.41"
+   },
+   "scripts": {
+      "start": "npm run build && npm run serve",
+      "serve": "node -r dotenv/config buildbuild/index.js",
+      "build": "npm run clean && npm run build-ts",
+      "build-ts": "ts-node src/index.ts",
+      "clean": "rimraf ./build"
+   }
+}
