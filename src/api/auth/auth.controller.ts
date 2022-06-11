@@ -17,6 +17,27 @@ export const register = async (request: Request, response: Response, next: NextF
     }
 }
 
+export const login = async (request: Request, response: Response, next: NextFunction) => {
+    try {
+        const token = await authService.login(request.body.password, request.body.phoneNumber);
+
+        if (token) {
+            response.status(httpStatus.StatusCodes.OK).json({
+                message: "User Logged In Successfully",
+                token: token,
+            });
+        } else {
+            response.status(httpStatus.StatusCodes.NOT_FOUND).json({
+                message: "Wrong Credentials"
+            });
+        } 
+    } catch (error) {
+        response.status(httpStatus.StatusCodes.BAD_REQUEST).json({
+            message: error.message
+        })
+    }
+}
+
 const mapNewUserData = (request: Request): IUser => {
     try {
         const newUser: IUser = {

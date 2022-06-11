@@ -3,7 +3,7 @@ import { Joi } from "celebrate";
 const userRegistrationSchema = Joi.object().keys({
     firstName: Joi.string(),
     lastName: Joi.string(),
-    phoneNumber: Joi.string(),
+    phoneNumber: Joi.string().required(),
     countryCode: Joi.string(),
     gender: Joi.string(),
     birthDate: Joi.string(),

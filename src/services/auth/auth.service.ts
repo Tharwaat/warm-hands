@@ -2,6 +2,7 @@ import { IUser } from "../../api/types/user.type";
 import { User } from "../../entity/User";
 import { getRepository } from "typeorm";
 import * as bcrypt from "bcrypt";
+import * as jwt from "jsonwebtoken";
 
 
 export const saveUser = async (newUser: IUser): Promise<User> => {
@@ -20,6 +21,48 @@ export const saveUser = async (newUser: IUser): Promise<User> => {
         } else {
             return Promise.reject(null);
         }
+    } catch (error) {
+        throw error;
+    }
+}
+
+export const login = async (password: string, phoneNumber: string): Promise<String> => {
+    try {
+        const userRepository = getRepository(User);
+        const foundUser = await userRepository.findOne({
+            where: {
+                phoneNumber
+            }
+        });
+
+        if (foundUser) {
+            await validateUserPassword(foundUser.password, password);
+            return Promise.resolve(generateJwt(phoneNumber, foundUser.email));
+        } else {
+            return null;
+        }
+    } catch (error) {
+        throw error;
+    }
+}
+
+const generateJwt = (phoneNumber: string, email: string): string => { 
+    try {
+        const key = "N3wKe4F0rLo9!n";
+        const tokenPayLoad = {phoneNumber, email};
+        const token = jwt.sign(tokenPayLoad, key);
+        return token;
+    } catch (error) {
+        throw error;
+    }
+}
+
+const validateUserPassword = async (userPassword: string, entertedPassword: string)  => {
+    try {
+        const isPasswordCorrect = await bcrypt.compare(entertedPassword, userPassword);
+        if (!isPasswordCorrect) {
+            throw new Error("Wrong Password")
+        }    
     } catch (error) {
         throw error;
     }

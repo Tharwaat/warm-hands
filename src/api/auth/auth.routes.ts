@@ -9,3 +9,9 @@ authRoutes.route("/register")
     validation.validateNewUserRequestBody,
     authController.register
 );
+
+authRoutes.route("/login")
+.post(  
+    validation.validateUserLoginRequestBody,
+    authController.login
+);
