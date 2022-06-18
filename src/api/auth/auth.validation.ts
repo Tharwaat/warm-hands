@@ -1,8 +1,8 @@
 import { Joi } from "celebrate";
 
 const userRegistrationSchema = Joi.object().keys({
-    firstName: Joi.string(),
-    lastName: Joi.string(),
+    firstName: Joi.string().required(),
+    lastName: Joi.string().required(),
     phoneNumber: Joi.string().required(),
     countryCode: Joi.string(),
     gender: Joi.string(),
@@ -10,6 +10,7 @@ const userRegistrationSchema = Joi.object().keys({
     avatar: Joi.string(),
     password: Joi.string().required().min(6),
     email: Joi.string().required(),
+    type: Joi.string().required().valid(["provider", "patient", "volunteer"]),
 });
 
 const loginSchema = Joi.object().keys({

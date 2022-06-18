@@ -6,8 +6,9 @@ interface IUser {
     avatar?: string;
     phoneNumber?: string;
     birthDate?: string;
-    email: string;
+    email?: string;
     password?: string;
+    type?: string;
 }
 
 export {

@@ -4,9 +4,9 @@ import * as userController from "../user/user.controller";
 
 export const userRoutes = express.Router();
 
-userRoutes.route("/update")
-.put(  
-    authValidation.validateAccessTokenHeader,
-    authValidation.verifyAccessToken,
-    userController.update
-);
+// userRoutes.route("/update")
+// .put(  
+//     authValidation.validateAccessTokenHeader,
+//     authValidation.verifyAccessToken,
+//     userController.update,
+// );

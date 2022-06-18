@@ -12,6 +12,9 @@ export const saveUser = async (newUser: IUser): Promise<User> => {
         const userToSave = new User();
         userToSave.email = newUser.email;
         userToSave.firstName = newUser.firstName;
+        userToSave.lastName = newUser.lastName;
+        userToSave.type = newUser.type;
+        userToSave.phoneNumber = newUser.phoneNumber;
         userToSave.password = await bcrypt.hash(newUser.password, 10);
         
         const createdUser = await userRepository.save(userToSave);
@@ -61,7 +64,7 @@ const validateUserPassword = async (userPassword: string, entertedPassword: stri
     try {
         const isPasswordCorrect = await bcrypt.compare(entertedPassword, userPassword);
         if (!isPasswordCorrect) {
-            throw new Error("Wrong Password")
+            throw new Error("Wrong Password");
         }    
     } catch (error) {
         throw error;

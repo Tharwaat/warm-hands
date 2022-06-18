@@ -3,6 +3,7 @@ import * as bodyParser from "body-parser";
 import { createConnection } from "typeorm";
 import { authRoutes } from "./api/auth/auth.routes";
 import { userRoutes } from "./api/user/user.routes";
+import { scheduleRoutes } from "./api/schedule/schedule.routes";
 import { port } from "./config/config";
 import { errors } from "celebrate";
 
@@ -23,6 +24,7 @@ function startServer() {
         
         router.use("/auth", authRoutes);
         router.use("/users", userRoutes);
+        router.use("/schedule", scheduleRoutes);
         
         app.use(bodyParser.urlencoded({extended: true}));
         app.use(bodyParser.json());

@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm"
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { Schedule } from "./Schedule"
 
 @Entity()
 export class User {
@@ -38,5 +39,8 @@ export class User {
     @Column({
         nullable: true
     })
-    salt: string
+    type: string
+
+    @OneToMany(() => Schedule, schedule => schedule.user)
+    schedule: Schedule[]
 }

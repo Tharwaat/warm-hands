@@ -49,6 +49,7 @@ const mapNewUserData = (request: Request): IUser => {
             avatar: request.body.avatar,
             birthDate: request.body.birthDate,
             password: request.body.password,
+            type: request.body.type,
         };
 
         return newUser;
