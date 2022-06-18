@@ -11,3 +11,9 @@ scheduleRoutes.route("/")
     scheduleValidation.validateAddScheduleRequestBody,
     scheduleController.addSchedule,
 );
+
+scheduleRoutes.route("/:scheduleId")
+.delete(
+    verifyAccessToken,
+    scheduleController.deleteSchedule,
+);

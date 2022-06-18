@@ -16,3 +16,20 @@ export const addSchedule = async (request: Request, response: Response, next: Ne
         });
     }
 }
+
+export const deleteSchedule = async (request: Request, response: Response, next: NextFunction) => {
+    try {
+        const scheduleId : number = Number(request.params.scheduleId);
+
+        await scheduleService.deleteSchedule(scheduleId);
+        
+        response.status(httpStatus.StatusCodes.OK).json({
+            message: "Schedule has been deleted successfully",
+        });
+    } catch (error) {
+        console.error(error.message);
+        response.status(httpStatus.StatusCodes.NOT_FOUND).json({
+            message: error.message,
+        });
+    }
+}

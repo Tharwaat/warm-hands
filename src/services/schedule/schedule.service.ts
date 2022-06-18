@@ -27,3 +27,15 @@ export const addSchedule = async (newSchedule: any): Promise<void> => {
         throw error;
     }
 }
+
+export const deleteSchedule = async (scheduleId: number) => {
+    try {
+        const scheduleRepository = getRepository(Schedule);
+        const deletedSchedule =  (await scheduleRepository.delete(scheduleId)).affected;
+        if (deletedSchedule == 0) return Promise.reject(new Error("Schedule Not Found"));
+        return Promise.resolve(true);
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
+
