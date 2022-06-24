@@ -33,3 +33,20 @@ export const deleteSchedule = async (request: Request, response: Response, next:
         });
     }
 }
+
+export const fetchScheules = async (request: Request, response: Response, next: NextFunction) => {
+    try {
+        
+        const schedules = await scheduleService.fetchSchedules();
+        
+        response.status(httpStatus.StatusCodes.OK).json({
+            message: "Schedule has been fetched successfully",
+            data: schedules
+        });
+    } catch (error) {
+        console.error(error.message);
+        response.status(httpStatus.StatusCodes.NOT_FOUND).json({
+            message: error.message,
+        });
+    }
+}

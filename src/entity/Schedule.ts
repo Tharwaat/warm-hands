@@ -13,7 +13,9 @@ export class Schedule {
     @Column()
     hourTo: string
 
-    @ManyToOne(()=> User, user => user.schedule)
+    @ManyToOne(()=> User, user => user.schedule, {
+        eager: true
+    })
     user: User
 
     @Column()
