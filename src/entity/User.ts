@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from "typeorm"
+import { Booking } from "./Booking"
 import { Schedule } from "./Schedule"
 
 @Entity()
@@ -48,4 +49,7 @@ export class User {
 
     @OneToMany(() => Schedule, schedule => schedule.user)
     schedule: Schedule[]
+
+    @OneToMany(() => Booking, booking => booking.user)
+    booking: Booking[]
 }

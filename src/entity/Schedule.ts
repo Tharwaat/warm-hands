@@ -7,17 +7,28 @@ export class Schedule {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column()
+    @Column({
+        nullable: true
+    })
     hourFrom: string
 
-    @Column()
+    @Column({
+        nullable: true
+    })
     hourTo: string
+
+    @Column({
+        nullable: true
+    })
+    day: string
+    
+    @Column({
+        default: 0
+    })
+    isBooked: boolean
 
     @ManyToOne(()=> User, user => user.schedule, {
         eager: true
     })
     user: User
-
-    @Column()
-    day: string
 }

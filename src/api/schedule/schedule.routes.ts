@@ -21,5 +21,12 @@ scheduleRoutes.route("/:scheduleId")
 scheduleRoutes.route("/")
 .get(
     verifyAccessToken,
-    scheduleController.fetchScheules,
+    scheduleController.fetchSchedule,
+);
+
+scheduleRoutes.route("/book/:scheduleId")
+.post(
+    verifyAccessToken,
+    scheduleValidation.validateBookScheduleRequestBody,
+    scheduleController.bookSchedule,
 );

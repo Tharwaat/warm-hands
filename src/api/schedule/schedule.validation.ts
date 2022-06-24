@@ -7,6 +7,11 @@ const addScheduleSchema = Joi.object().keys({
     userId: Joi.number().required(),
 });
 
+const bookScheduleSchema = Joi.object().keys({
+    patientId: Joi.number().required(),
+});
+
 export {
     addScheduleSchema,
+    bookScheduleSchema,
 };

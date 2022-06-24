@@ -1,4 +1,5 @@
 import { getRepository } from "typeorm";
+import { Booking } from "../../entity/Booking";
 import { Schedule } from "../../entity/Schedule";
 import { User } from "../../entity/User";
 
@@ -43,6 +44,31 @@ export const fetchSchedules = async () => {
     try {
         const scheduleRepository = getRepository(Schedule);
         return Promise.resolve(await scheduleRepository.find());
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
+
+export const bookSchedule = async (patientId: number, scheduleId: number) => {
+    try {
+        const scheduleRepository = getRepository(Schedule);
+        const userRepository = getRepository(User);
+        const bookingRepository = getRepository(Booking);
+
+        const scheduleToBook = await scheduleRepository.findOne(scheduleId);
+        if (!scheduleToBook) throw new Error("Schedule is not found");
+
+        const patient = await userRepository.findOne(patientId);
+        if (!patient) throw new Error("Patient is not found");
+
+        const booking = new Booking();
+        booking.schedule = scheduleToBook;
+        booking.user = patient;
+        await bookingRepository.save(booking);
+        
+        scheduleToBook.isBooked = true;
+        await scheduleRepository.save(scheduleToBook);
+        return Promise.resolve(true);
     } catch (error) {
         return Promise.reject(error);
     }
