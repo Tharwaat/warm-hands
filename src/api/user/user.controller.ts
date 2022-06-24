@@ -15,6 +15,22 @@ export const update = async (request: Request, response: Response, next: NextFun
     }
 }
 
+export const activate = async (request: Request, response: Response, next: NextFunction) => {
+    try {
+        await userService.activateUser(Number(request.params.userId));
+        
+        response.status(httpStatus.StatusCodes.OK).json({
+            message: "User has been activated successfully",
+        });
+
+    } catch (error) {
+        response.status(httpStatus.StatusCodes.NOT_FOUND).json({
+            message: "User is not found or error has occured",
+            cause: error.message
+        });
+    }
+}
+
 const mapNewUserData = (request: Request): IUser => {
     try {
         const newUser: IUser = {

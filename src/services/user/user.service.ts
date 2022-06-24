@@ -27,3 +27,22 @@ export const updateUser = async (newUser: IUser): Promise<User> => {
         throw error;
     }
 }
+
+export const activateUser = async (userId: number): Promise<boolean> => {
+    try {
+        const userRepository = getRepository(User);
+
+        const userToUpdate = await userRepository.findOne({
+            id: userId,
+        });
+        
+        if (userToUpdate) {
+            userToUpdate.isActive = true;
+            await userRepository.save(userToUpdate);
+            return Promise.resolve(true);
+        }
+        return Promise.reject(false);
+    } catch (error) {
+        throw error;
+    }
+}

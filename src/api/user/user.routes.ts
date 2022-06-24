@@ -10,3 +10,10 @@ export const userRoutes = express.Router();
 //     authValidation.verifyAccessToken,
 //     userController.update,
 // );
+
+userRoutes.route("/activate/:userId")
+.post(
+    authValidation.validateAccessTokenHeader,
+    authValidation.verifyAccessToken,
+    userController.activate,
+);

@@ -41,6 +41,11 @@ export class User {
     })
     type: string
 
+    @Column({
+        default: 0
+    })
+    isActive: boolean
+
     @OneToMany(() => Schedule, schedule => schedule.user)
     schedule: Schedule[]
 }
