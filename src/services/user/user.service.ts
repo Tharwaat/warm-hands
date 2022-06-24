@@ -46,3 +46,13 @@ export const activateUser = async (userId: number): Promise<boolean> => {
         throw error;
     }
 }
+
+export const fetchAllUsers = async (): Promise<User[]> => {
+    try {
+        const userRepository = getRepository(User);
+
+        return Promise.resolve(await userRepository.find());
+    } catch (error) {
+        throw error;
+    }
+}

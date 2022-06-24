@@ -31,6 +31,23 @@ export const activate = async (request: Request, response: Response, next: NextF
     }
 }
 
+export const fetchAllUsers = async (request: Request, response: Response, next: NextFunction) => {
+    try {
+        const users = await userService.fetchAllUsers();
+        
+        response.status(httpStatus.StatusCodes.OK).json({
+            message: "User has been activated successfully",
+            data: users,
+        });
+
+    } catch (error) {
+        response.status(httpStatus.StatusCodes.NOT_FOUND).json({
+            message: "An error has occured",
+            cause: error.message
+        });
+    }
+}
+
 const mapNewUserData = (request: Request): IUser => {
     try {
         const newUser: IUser = {

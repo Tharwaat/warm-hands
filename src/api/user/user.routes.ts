@@ -17,3 +17,10 @@ userRoutes.route("/activate/:userId")
     authValidation.verifyAccessToken,
     userController.activate,
 );
+
+userRoutes.route("/")
+.get(
+    authValidation.validateAccessTokenHeader,
+    authValidation.verifyAccessToken,
+    userController.fetchAllUsers,
+);
