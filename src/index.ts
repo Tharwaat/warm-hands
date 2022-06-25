@@ -36,7 +36,12 @@ function startServer() {
         app.set('view engine', 'ejs');
         
         app.get('/signin', (req, res) => {
-            res.render('signin', {foo: 'FOO'});
+            const isWrongCredentials = req.app.get("wrongCredentials");
+            res.render('signin', {isWrongCredentials});
+        });
+
+        app.get('/patient/home', (req, res) => {
+            res.render('patienthome', {foo: 'FOO'});
         });
 
         app.listen(port, () => {

@@ -22,19 +22,26 @@ export const login = async (request: Request, response: Response, next: NextFunc
         const token = await authService.login(request.body.password, request.body.phoneNumber);
 
         if (token) {
-            response.status(httpStatus.StatusCodes.OK).json({
-                message: "User Logged In Successfully",
-                token: token,
-            });
+            response.setHeader("Content-Type", "text/html");
+            response.app.set("wrongCredentials", false);
+            response.redirect("/patient/home");
+            // response.status(httpStatus.StatusCodes.OK).json({
+            //     message: "User Logged In Successfully",
+            //     token: token,
+            // });
         } else {
-            response.status(httpStatus.StatusCodes.NOT_FOUND).json({
-                message: "Wrong Credentials"
-            });
-        } 
+            response.setHeader("Content-Type", "text/html");
+            response.app.set("wrongCredentials", true);
+            response.redirect("/signin");     
+        }
     } catch (error) {
-        response.status(httpStatus.StatusCodes.BAD_REQUEST).json({
-            message: error.message
-        })
+        response.setHeader("Content-Type", "text/html");
+        response.app.set("wrongCredentials", true);
+        response.redirect("/signin");
+        
+        // response.status(httpStatus.StatusCodes.BAD_REQUEST).json({
+        //     message: error.message
+        // })
     }
 }
 
