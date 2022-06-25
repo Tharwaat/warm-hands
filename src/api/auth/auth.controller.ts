@@ -22,13 +22,13 @@ export const login = async (request: Request, response: Response, next: NextFunc
         const user = await authService.login(request.body.password, request.body.phoneNumber);
 
         if (user) {
-            if (user.type === "provider" || user.type === "volunteer") {
-                response.setHeader("Content-Type", "text/html");
-                response.app.set("wrongCredentials", false);
+            response.setHeader("Content-Type", "text/html");
+            response.app.set("wrongCredentials", false);
+            response.app.set("user", user);
+            
+            if (user.type === "daycare" || user.type === "caregiver" || user.type === "volunteer") {    
                 response.redirect("/user/home");
             } else {
-                response.setHeader("Content-Type", "text/html");
-                response.app.set("wrongCredentials", false);
                 response.redirect("/patient/home");
             }
             // response.status(httpStatus.StatusCodes.OK).json({
@@ -63,6 +63,10 @@ const mapNewUserData = (request: Request): IUser => {
             birthDate: request.body.birthDate,
             password: request.body.password,
             type: request.body.type,
+            fees: request.body.rateAmount,
+            country: request.body.country,
+            age: request.body.age,
+            experience: request.body.experience,
         };
 
         return newUser;

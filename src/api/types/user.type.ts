@@ -9,6 +9,10 @@ interface IUser {
     email?: string;
     password?: string;
     type?: string;
+    fees?: number,
+    country?: string,
+    experience?: string,
+    age?: number,
 }
 
 export {

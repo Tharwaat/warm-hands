@@ -47,10 +47,10 @@ export const activateUser = async (userId: number): Promise<boolean> => {
     }
 }
 
-export const fetchAllUsers = async (): Promise<User[]> => {
+export const fetchAllUsers = async (type?: string): Promise<User[]> => {
     try {
         const userRepository = getRepository(User);
-
+        if (type && type !== "all") return Promise.resolve(await userRepository.find({type}));
         return Promise.resolve(await userRepository.find());
     } catch (error) {
         throw error;

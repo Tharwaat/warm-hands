@@ -47,6 +47,21 @@ export class User {
     })
     isActive: boolean
 
+    @Column({
+        nullable: true
+    })
+    fees: number
+
+    @Column({
+        nullable: true
+    })
+    country: string
+
+    @Column({
+        nullable: true
+    })
+    experience: string
+
     @OneToMany(() => Schedule, schedule => schedule.user)
     schedule: Schedule[]
 

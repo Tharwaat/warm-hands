@@ -1,6 +1,6 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
-import * as path from "path";
+import * as userService from "./services/user/user.service";
 import { createConnection } from "typeorm";
 import { authRoutes } from "./api/auth/auth.routes";
 import { userRoutes } from "./api/user/user.routes";
@@ -40,7 +40,11 @@ function startServer() {
             res.render('signin', {isWrongCredentials});
         });
 
-        app.get('/patient/home', (req, res) => {
+        app.get('/patient/home', async (req, res) => {
+            const caregivers = await userService.fetchAllUsers("caregiver");
+            const daycares = await userService.fetchAllUsers("daycare");
+            const volunteers = await userService.fetchAllUsers("volunteer");
+            console.log("CG: ", caregivers, " DC: ", daycares, " V: ", volunteers);
             res.render('patienthome', {foo: 'FOO'});
         });
 
