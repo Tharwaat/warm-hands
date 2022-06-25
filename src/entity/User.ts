@@ -62,6 +62,11 @@ export class User {
     })
     experience: string
 
+    @Column({
+        nullable: true
+    })
+    gender: string
+
     @OneToMany(() => Schedule, schedule => schedule.user)
     schedule: Schedule[]
 

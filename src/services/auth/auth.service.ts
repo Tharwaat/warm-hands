@@ -19,6 +19,7 @@ export const saveUser = async (newUser: IUser): Promise<User> => {
         userToSave.fees = newUser.fees;
         userToSave.country = newUser.country;
         userToSave.experience = newUser.experience;
+        userToSave.gender = newUser.gender;
         userToSave.password = await bcrypt.hash(newUser.password, 10);
         
         const createdUser = await userRepository.save(userToSave);

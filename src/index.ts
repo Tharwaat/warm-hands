@@ -44,8 +44,8 @@ function startServer() {
             const caregivers = await userService.fetchAllUsers("caregiver");
             const daycares = await userService.fetchAllUsers("daycare");
             const volunteers = await userService.fetchAllUsers("volunteer");
-            console.log("CG: ", caregivers, " DC: ", daycares, " V: ", volunteers);
-            res.render('patienthome', {foo: 'FOO'});
+            //console.log("CG: ", caregivers, " DC: ", daycares, " V: ", volunteers);
+            res.render('patienthome', {caregivers, daycares, volunteers});
         });
 
         app.get('/user/home', (req, res) => {
