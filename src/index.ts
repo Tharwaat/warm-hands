@@ -1,5 +1,6 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
+import * as path from "path";
 import { createConnection } from "typeorm";
 import { authRoutes } from "./api/auth/auth.routes";
 import { userRoutes } from "./api/user/user.routes";
@@ -30,6 +31,13 @@ function startServer() {
         app.use(bodyParser.json());
         app.use(errors());
         app.use("/api", router);
+        app.use(express.static("public"));
+        
+        app.set('view engine', 'ejs');
+        
+        app.get('/signin', (req, res) => {
+            res.render('signin', {foo: 'FOO'});
+        });
 
         app.listen(port, () => {
             console.log("Server is running on port:", port);

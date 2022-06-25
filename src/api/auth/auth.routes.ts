@@ -11,7 +11,7 @@ authRoutes.route("/register")
 );
 
 authRoutes.route("/login")
-.post(  
+.post( 
     validation.validateUserLoginRequestBody,
     authController.login
 );

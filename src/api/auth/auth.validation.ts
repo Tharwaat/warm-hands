@@ -16,6 +16,7 @@ const userRegistrationSchema = Joi.object().keys({
 const loginSchema = Joi.object().keys({
     phoneNumber: Joi.string().required(),
     password: Joi.string().required().min(6),
+    button: Joi.string()
 });
 
 const tokenValidationSchema = Joi.object().keys({

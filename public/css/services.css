@@ -1,0 +1,129 @@
+.landing {
+    position: relative;
+    }
+.landing::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: -40px;
+    width: 100%;
+    height: 100%;
+    background-color: #ececec;
+    z-index: -1;
+    transform: skewY(-9deg);
+    transform-origin: top left;
+    }
+.landing .container {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    padding-bottom: 120px;
+    }
+.landing .text {
+    flex: 1;
+    }
+@media (max-width: 991px) {
+    .landing .text {
+    text-align: center;
+    }
+    }
+.landing .text h1 {
+    font-size: 40px;
+    margin: 0;
+    letter-spacing: -1px;
+    color: rgb(60, 60, 60);
+    }
+@media (max-width: 767px) {
+    .landing .text h1 {
+    font-size: 28px;
+    }
+    }
+.landing .text p {
+    font-size: 23px;
+    line-height: 1.7;
+    margin: 5px 0 0;
+    color: #666;
+    max-width: 1000px;
+    }
+@media (max-width: 991px) {
+    .landing .text p {
+    margin: 10px auto;
+    }
+    }
+@media (max-width: 767px) {
+    .landing .text p {
+    font-size: 18px;
+    }
+    }
+.landing .image img {
+    animation: up-and-down 5s linear infinite;
+    position: relative;
+    width: 600px;
+    }
+@media (max-width: 991px) {
+    .landing .image {
+    display: none;
+    }
+    }
+/* Services */
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    }
+  /* Small */
+@media (min-width: 768px) {
+    .container {
+    width: 750px;
+    }
+    }
+  /* Medium */
+@media (min-width: 992px) {
+    .container {
+    width: 970px;
+    }
+    } 
+  /* Large */
+@media (min-width: 1200px) {
+    .container {
+    width: 1170px;
+    }
+    }
+.join{
+        color: #1787e0;
+    }
+.join:hover{    
+        color: #e07817;
+        text-decoration: underline;
+    }
+.joinn{
+        color: #13334d;
+    }
+.joinn:hover{    
+        color: #e07817;
+        text-decoration: underline;
+    }
+.button{
+        background-color: #1787e0;
+        border: 2px solid #1787e0;
+        border-radius: 50px;
+        color: #fff;
+        display: block;
+        font-family: inherit;
+        font-size: 16px;
+        padding: 15px;
+        align-items: center;
+        justify-content: center;
+        width: 10%;
+        cursor: pointer;
+        position: relative;
+        margin-left: 500px;
+        box-shadow: 2px 2px 3px  #777;
+        
+    }
+.button:hover{
+        background-color: #62a7df;
+        border:2px solid #62a7df;
+    }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="css/register.css" />
+    <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+    <!-- fonts awesome -->
+    <link rel="stylesheet" type="text/css" href="css/all.min.css" />
+    <script src="https://kit.fontawesome.com/66f7f9abfb.js" crossorigin="anonymous"></script>
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;800&display=swap" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <!-- Start Header -->
+    <div class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo"><img src="imgs/logoo.png"> Warm Hands</a>
+            <ul class="main-nav">
+                <li><a href="Home.html" target="_blank">Home</a></li>
+                <li><a href="Signup.html" target="_blank"> Sign up</a></li>
+                <li><a href="services.html" target="_blank"> Services</a></li>
+                <li><a href="aboutus.html" target="_blank"> About Us</a></li>
+                <li><a href="contact us.html" target="_blank"> Contact Us</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Header -->
+    <!-- Start landing-->
+
+    <div class="register">
+        <div class="dots dotss-up"></div>
+        <div class="dots dotss-down"></div>
+        <div class="container1">
+
+            <div class="heading">
+                <h2>Sign in</h2>
+            </div>
+            <!-- Start sign in form -->
+            <form id="form" class="form" action="http://localhost:3000/api/auth/login" method="post">
+                <br>
+                <div class="form-control ">
+                    <label for="phoneNumber"><b>Phone Number</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input id="phoneNumber" name="phoneNumber" type="text" placeholder=" &nbsp;Enter your phoneNumber">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div>
+
+
+                <div class="form-control ">
+                    <label for="password"><b> Password</b>&emsp; &emsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;</label>
+                    <input id="password" name="password" type="password" placeholder=" &nbsp;Enter your password">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div><br>
+
+                <input name="button" class="button" type="submit" value="Submit" id="loginSubmit"> <br>
+                <input class="buttonn" type="reset">
+                <div class="in">
+                    <br> <br>
+                    <p> Don't have an account? <a class="linkss" href="Signup.html">Sign up</a></p>
+                </div>
+        </div>
+        </form>
+        <!-- End sign in form-->
+    </div>
+
+
+    <!-- End landing -->
+    <!-- <script defer src="/patient.js"></script> -->
+</body>
+
+</html>
