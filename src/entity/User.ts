@@ -52,4 +52,6 @@ export class User {
 
     @OneToMany(() => Booking, booking => booking.user)
     booking: Booking[]
+
+    token: string;
 }

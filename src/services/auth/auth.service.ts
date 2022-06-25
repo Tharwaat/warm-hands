@@ -29,7 +29,7 @@ export const saveUser = async (newUser: IUser): Promise<User> => {
     }
 }
 
-export const login = async (password: string, phoneNumber: string): Promise<String> => {
+export const login = async (password: string, phoneNumber: string): Promise<User> => {
     try {
         const userRepository = getRepository(User);
         const foundUser = await userRepository.findOne({
@@ -40,7 +40,9 @@ export const login = async (password: string, phoneNumber: string): Promise<Stri
 
         if (foundUser) {
             await validateUserPassword(foundUser.password, password);
-            return Promise.resolve(generateJwt(phoneNumber, foundUser.email));
+            const token = generateJwt(phoneNumber, foundUser.email);
+            foundUser.token = token;
+            return Promise.resolve(foundUser);
         } else {
             return null;
         }

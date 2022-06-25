@@ -19,12 +19,18 @@ export const register = async (request: Request, response: Response, next: NextF
 
 export const login = async (request: Request, response: Response, next: NextFunction) => {
     try {
-        const token = await authService.login(request.body.password, request.body.phoneNumber);
+        const user = await authService.login(request.body.password, request.body.phoneNumber);
 
-        if (token) {
-            response.setHeader("Content-Type", "text/html");
-            response.app.set("wrongCredentials", false);
-            response.redirect("/patient/home");
+        if (user) {
+            if (user.type === "provider" || user.type === "volunteer") {
+                response.setHeader("Content-Type", "text/html");
+                response.app.set("wrongCredentials", false);
+                response.redirect("/user/home");
+            } else {
+                response.setHeader("Content-Type", "text/html");
+                response.app.set("wrongCredentials", false);
+                response.redirect("/patient/home");
+            }
             // response.status(httpStatus.StatusCodes.OK).json({
             //     message: "User Logged In Successfully",
             //     token: token,

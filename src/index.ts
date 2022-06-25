@@ -44,6 +44,10 @@ function startServer() {
             res.render('patienthome', {foo: 'FOO'});
         });
 
+        app.get('/user/home', (req, res) => {
+            res.render('userHome', {foo: 'FOO'});
+        });
+
         app.listen(port, () => {
             console.log("Server is running on port:", port);
         });
