@@ -16,10 +16,11 @@ const terms = document.querySelector("#terms");
 const submit = document.querySelector("#submit");
 
 form.addEventListener("submit", async (e) => {
-  //console.log(e);
-  //e.preventDefault();
+  e.preventDefault();
   console.log(document.getElementById("type").value);
-  //await validateInputs();
+  const isValid = validateInputs();
+  console.log(isValid);
+  if (isValid) document.getElementById("form").submit();
 });
 
 const validateInputs = () => {
