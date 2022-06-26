@@ -27,8 +27,6 @@ export class Schedule {
     })
     isBooked: boolean
 
-    @ManyToOne(()=> User, user => user.schedule, {
-        eager: true
-    })
+    @ManyToOne(()=> User, user => user.schedule)
     user: User
 }

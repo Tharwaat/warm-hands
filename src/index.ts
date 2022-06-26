@@ -77,7 +77,17 @@ function startServer() {
         app.get('/user/home', (req, res) => {
             const user = req.app.get("user");
             if (!user) res.redirect('/signin');
+            console.log(user);
             res.render('servicehome', {user});
+        });
+
+        app.get('/add/schedule', (req, res) => {
+            const user = req.app.get("user");
+            if (!user) res.redirect('/signin');
+            if (user.type === 'volunteer' || user.type === 'daycare') {
+                res.render('schedule', {user});
+            } else res.render('caregiverschedule', {user});
+            
         });
 
         app.listen(port, () => {

@@ -67,10 +67,18 @@ export class User {
     })
     gender: string
 
-    @OneToMany(() => Schedule, schedule => schedule.user)
+    @OneToMany(() => Schedule, schedule => schedule.user,
+        {
+            eager: true
+        }
+    )
     schedule: Schedule[]
 
-    @OneToMany(() => Booking, booking => booking.user)
+    @OneToMany(() => Booking, booking => booking.user,
+        {
+            eager: true
+        }
+    )
     booking: Booking[]
 
     token: string;

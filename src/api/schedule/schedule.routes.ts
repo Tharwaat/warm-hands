@@ -7,7 +7,7 @@ export const scheduleRoutes = express.Router();
 
 scheduleRoutes.route("/")
 .post(
-    verifyAccessToken,
+    //verifyAccessToken,
     scheduleValidation.validateAddScheduleRequestBody,
     scheduleController.addSchedule,
 );

@@ -1,241 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/services.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/services.css" />
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
     <!-- fonts awesome -->
-    <link rel="stylesheet" type="text/css" href="/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/all.min.css" />
     <script src="https://kit.fontawesome.com/66f7f9abfb.js" crossorigin="anonymous"></script>
     <!--Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<!-- Start Header -->
+    <!-- Start Header -->
     <div class="header" id="header">
-    <div class="container">
-        <a href="#" class="logo"><img src="/imgs/logoo.png">  Warm Hands</a>
+        <div class="container">
+            <a href="#" class="logo"><img src="/imgs/logoo.png"> Warm Hands</a>
             <ul class="main-nav">
-                <li><a  > Hi <%= user.firstName %></a></li>
-                <li><a href="#schedule" > Schedule</a></li>
+                <li><a> Hi <%= user.firstName %></a></li>
+                <li><a href="#schedule"> Schedule</a></li>
                 <li>
                     <a href="#">Warm hands</a>
-                <!-- Start Megamenu -->
-    <div class="mega-menu">
-        
-        <ul class="links">
-            
-            <li><a href="services.html" target="_blank"><i class="fa-solid fa-handshake-angle"></i> Services</a></li>
-            <li><a href="aboutus.html" target="_blank"><i class="fa-regular fa-address-card"></i> About us</a></li>
-            <li><a href="FAQs.html" target="_blank"><i class="fa-solid fa-clipboard-question"></i> FAQs</a></li>
-            <li><a href="contact us.html" target="_blank"><i class="far fa-comments fa-fw"></i> Contact Us</a></li>
-            <li><a href="terms.html" target="_blank"><i class="fa-solid fa-file-shield"></i></i> Terms and conditions</a></li>
+                    <!-- Start Megamenu -->
+                    <div class="mega-menu">
 
-            
-            
-        </ul>
-        
-    </div>
-<!-- End Megamenu -->
+                        <ul class="links">
 
-                <li><a href="contact us.html" target="_blank"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp; Log out</a></li>
+                            <li><a href="services.html" target="_blank"><i class="fa-solid fa-handshake-angle"></i>
+                                    Services</a></li>
+                            <li><a href="aboutus.html" target="_blank"><i class="fa-regular fa-address-card"></i> About
+                                    us</a></li>
+                            <li><a href="FAQs.html" target="_blank"><i class="fa-solid fa-clipboard-question"></i>
+                                    FAQs</a></li>
+                            <li><a href="contact us.html" target="_blank"><i class="far fa-comments fa-fw"></i> Contact
+                                    Us</a></li>
+                            <li><a href="terms.html" target="_blank"><i class="fa-solid fa-file-shield"></i></i> Terms
+                                    and conditions</a></li>
+
+
+
+                        </ul>
+
+                    </div>
+                    <!-- End Megamenu -->
+
+                <li><a href="contact us.html" target="_blank"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;
+                        Log out</a></li>
             </ul>
+        </div>
     </div>
-    </div>
-<!-- End Header -->
-<!-- Start landing-->
+    <!-- End Header -->
+    <!-- Start landing-->
 
     <div class="landing">
-    <div class="container">
-    <div class="text">
-        <h1>Welcome, To Warm Hands</h1>
-        <p>You don't just help, you INSPIRE, <br> Thank you for making difference everyday.</p><br><br><br>
-        <a href="edit.html" target="_blank" class="btn" >Edit</a> <br>
-        <a href="" class="btn" >Delete account</a> <br>
-    </div>
-    <div class="image">
-        <img src="/imgs/landing.png" alt="" />
-    </div>
-    </div>
+        <div class="container">
+            <div class="text">
+                <h1>Welcome, To Warm Hands</h1>
+                <p>You don't just help, you INSPIRE, <br> Thank you for making difference everyday.</p><br><br><br>
+                <a href="edit.html" target="_blank" class="btn">Edit</a> <br>
+                <a href="" class="btn">Delete account</a> <br>
+            </div>
+            <div class="image">
+                <img src="/imgs/landing.png" alt="" />
+            </div>
+        </div>
         <a href="#schedule" class="go-down">
-        <i class="fas fa-angle-double-down fa-2x"></i>
+            <i class="fas fa-angle-double-down fa-2x"></i>
         </a>
     </div>
-    
+
     </div>
     </div>
     </div>
-    </div>   
-<!-- End landing -->
-<!-- Start schedule -->
-<div class="schedule" id="schedule">
-    <h2 class="main-title">Schedule</h2>
-<div class="container">
-<div class="box">
-    <img src="" alt="" />
-<div class="content">
-    <h3>Name</h3>
-    <p>Gender <br>City <br> Experience level<br>Rate/hour<br> Birthdate<br></p>
-</div>
-<div class="info">
-    <a href="">Edit</a>
-    <br> <a href="">Delete</a>
-    <i class="fas fa-long-arrow-alt-right"></i>
-</div>
-</div> <a class="plus" href="schedule.html"><i class="fa-solid fa-circle-plus fa-4x"></i> </a>
-<!-- 
-<div class="box">
-    <img src="" alt="" />
-<div class="content">
-    <h3>Name</h3>
-    <p>Gender <br>City <br> Experience level<br> Birthdate<br></p>
-</div>
-<div class="info">
-    <a href="payment.html">Book</a>
-    <i class="fas fa-long-arrow-alt-right"></i>
-</div>
-</div>
-<div class="box">
-    <img src="" alt="" />
-<div class="content">
-    <h3>Name</h3>
-    <p>Gender <br>City <br> Experience level<br> Birthdate<br></p>
-</div>
-<div class="info">
-    <a href="payment.html">Book</a>
-    <i class="fas fa-long-arrow-alt-right"></i>
-</div>
-</div>
-<div class="box">
-    <img src="" alt="" />
-<div class="content">
-    <h3>Name</h3>
-    <p>Gender <br>City <br> Experience level<br> Birthdate<br></p>
-</div>
-<div class="info">
-    <a href="payment.html">Book</a>
-    <i class="fas fa-long-arrow-alt-right"></i>
-</div>
-</div>
-<div class="box">
-    <img src="" alt="" />
-<div class="content">
-    <h3>Name</h3>
-    <p>Gender <br>City <br> Experience level<br> Birthdate<br></p>
-</div>
-<div class="info">
-    <a href="payment.html">Book</a>
-    <i class="fas fa-long-arrow-alt-right"></i>
-</div>
-</div>
-<div class="box">
-    <img src="" alt="" />
-<div class="content">
-    <h3>Name</h3>
-    <p>Gender <br>City <br> Experience level<br> Birthdate<br></p>
-</div>
-<div class="info">
-    <a href="payment.html">Book</a>
-    <i class="fas fa-long-arrow-alt-right"></i>
-</div>
-</div>
-<div class="box">
-    <img src="" alt="" />
-<div class="content">
-    <h3>Name</h3>
-    <p>Gender <br>City <br> Experience level<br> Birthdate<br></p>
-</div>
-<div class="info">
-    <a href="payment.html">Book</a>
-    <i class="fas fa-long-arrow-alt-right"></i>
-</div>
-</div>
-<div class="box">
-    <img src="" alt="" />
-<div class="content">
-    <h3>Name</h3>
-    <p>Gender <br>City <br> Experience level<br> Birthdate<br></p>
-</div>
-<div class="info">
-    <a href="payment.html">Book</a>
-    <i class="fas fa-long-arrow-alt-right"></i>
-</div>
-</div>-->
-</div>
-</div>
+    </div>
+    <!-- End landing -->
+    <!-- Start schedule -->
+    <div class="schedules" id="schedule">
+        <h2 class="main-title">My Schedule</h2>
+        <div class="container">
+            <% for(let i = 0; i < user.schedule.length; i++) { %>
+                <%if (!user.schedule[i].isBooked) {%> 
+                    <div class="box">
+                        <img src="" alt="" />
+                        <div class="content">
+                            <h3>Day: <%= user.schedule[i].day%></h3>
+                            <p>From: <%= user.schedule[i].hourFrom%> 
+                            <br>To: <%= user.schedule[i].hourTo%>
+                        </div>
+                        <div class="info">
+                            <br> <a href="">Delete</a>
+                            <i class="fas fa-long-arrow-alt-right"></i>
+                        </div>
+                    </div> 
+
+                <% } %>
+             <% } %>
+             <a class="plus" href="/add/schedule"><i class="fa-solid fa-circle-plus fa-4x"></i> </a>
+        </div>
+    </div>
 
 
-<!-- End schedule -->
-<!-- Start Footer -->
-<div class="footer" id="footer">
-    <div class="container">
-    <div class="box">
-        <h3>Warm Hands</h3>
-        <ul class="social">
-            <li>
-            <a href="#" class="facebook">
-            <i class="fab fa-facebook-f"></i>
-            </a>
-            </li>
-            <li>
-            <a href="#" class="twitter">
-            <i class="fab fa-twitter"></i>
-            </a>
-            </li>
-            <li>
-            <a href="#" class="youtube">
-            <i class="fab fa-youtube"></i>
-            </a>
-            </li>
-        </ul>
-        <p class="text">
-        Follow us on social media to get the latest news.
-        </p>
+    <!-- End schedule -->
+    <!-- Start Footer -->
+    <div class="footer" id="footer">
+        <div class="container">
+            <div class="box">
+                <h3>Warm Hands</h3>
+                <ul class="social">
+                    <li>
+                        <a href="#" class="facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="youtube">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </li>
+                </ul>
+                <p class="text">
+                    Follow us on social media to get the latest news.
+                </p>
+            </div>
+            <div class="box">
+                <ul class="links">
+                    <li><a href="Signup.html" target="_blank">Sign up</a></li>
+                    <li><a href="Signin .html" target="_blank">Sign in</a></li>
+                    <li><a href="aboutus.html" target="_blank">About us</a></li>
+                    <li><a href="#">FAQs</a></li>
+
+                </ul>
+            </div>
+            <div class="box">
+                <div class="line">
+                    <i class="fas fa-map-marker-alt fa-fw"></i>
+                    <div class="info">Egypt, Cairo, Abu El-feda street, no43</div>
+                </div>
+                <div class="line">
+                    <i class="far fa-clock fa-fw"></i>
+                    <div class="info">Business Hours: From 10:00 To 18:00</div>
+                </div>
+                <div class="line">
+                    <i class="fas fa-phone-volume fa-fw"></i>
+                    <div class="info">
+                        <span>+2011121314151</span>
+                        <span>+0223456789</span>
+                    </div>
+                </div>
+                <div class="line">
+                    <i class="fa-solid fa-at"></i>
+                    <div class="info">
+                        <span>Warmhands22@gmail.com</span>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <p class="copyright">Warm Hands</p>
     </div>
-    <div class="box">
-        <ul class="links">
-            <li><a href="Signup.html" target="_blank">Sign up</a></li>
-            <li><a href="Signin .html" target="_blank">Sign in</a></li>
-            <li><a href="aboutus.html" target="_blank">About us</a></li>
-            <li><a href="#">FAQs</a></li>
-            
-        </ul>
-    </div>
-    <div class="box">
-    <div class="line">
-        <i class="fas fa-map-marker-alt fa-fw"></i>
-    <div class="info">Egypt, Cairo, Abu El-feda street, no43</div>
-    </div>
-    <div class="line">
-        <i class="far fa-clock fa-fw"></i>
-    <div class="info">Business Hours: From 10:00 To 18:00</div>
-    </div>
-    <div class="line">
-        <i class="fas fa-phone-volume fa-fw"></i>
-    <div class="info">
-        <span>+2011121314151</span>
-        <span>+0223456789</span>
-    </div>
-    </div>
-    <div class="line">
-        <i class="fa-solid fa-at"></i>
-    <div class="info">
-        <span>Warmhands22@gmail.com</span>
-        
-    </div>
-    </div>
-    </div>
-    
-    </div>
-    <p class="copyright">Warm Hands</p>
-    </div>
-<!-- End Footer -->
+    <!-- End Footer -->
 
 </body>
+
 </html>
