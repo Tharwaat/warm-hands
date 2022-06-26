@@ -1,54 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule</title>
     <link rel="stylesheet" href="/css/payment.css">
-
+    <script>
+        function onSubmit() {
+            document.getElementById("form").submit();
+        }
+    </script>
 </head>
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <form action="">
+        <form id="form" class="form" action="http://localhost:3000/api/schedule" method="post">
 
-        <div class="row">
+            <div class="row">
 
-            
 
-            <div class="col">
 
-                <h3 class="title">Schedule</h3>
+                <div class="col">
 
-                
-                <div class="inputBox">
-                    <span>Available day :</span>
-                    <input type="date" placeholder="Available day">
+                    <h3 class="title">Schedule</h3>
+
+                    
+                        <div class="form-control">
+                            <div class="inputBox">
+                                <span>Available day :</span>
+                                <input type="date" name="day" placeholder="Available day">
+                            </div>
+                        </div>
+
+                        <div class="flex">
+                            <div class="inputBox">
+                                <span>From :</span>
+                                <input type="time" name="hourFrom">
+                            </div>
+                            <div class="inputBox">
+                                <span>To :</span>
+                                <input type="time" name="hourTo">
+                            </div>
+                            <div style="display: none;">
+                                <input name="userId" type="number" value="<%=user.id%>" >
+                                <i class="fas fa-check-circle"></i>
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                        </div>
+                        
+                        
+                        
                 </div>
-                <div class="flex">
-                    <div class="inputBox">
-                        <span>From :</span>
-                        <input type="time" >
-                    </div>
-                    <div class="inputBox">
-                        <span>To :</span>
-                        <input type="time" >
-                    </div>
-                </div>
-
-                
 
             </div>
-    
-        </div>
 
-        <input type="submit" value="Add schedule" class="submit-btn">
+            <input type="submit" value="Add schedule" class="submit-btn">
+        </form>
 
-    </form>
+    </div>
 
-</div>    
-    
 </body>
+
 </html>

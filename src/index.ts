@@ -75,10 +75,11 @@ function startServer() {
             res.render('patienthome', {caregivers, daycares, volunteers});
         });
 
-        app.get('/user/home', (req, res) => {
+        app.get('/user/home', async (req, res) => {
             const user = req.app.get("user");
             if (!user) res.redirect('/signin');
-            res.render('servicehome', {user});
+            const updatedUser = await userService.getUser(user.id);
+            res.render('servicehome', {user: updatedUser[0]});
         });
 
         app.get('/user/schedules', async (req, res) => {
@@ -92,6 +93,7 @@ function startServer() {
         app.get('/add/schedule', (req, res) => {
             const user = req.app.get("user");
             if (!user) res.redirect('/signin');
+            console.log(user);
             if (user.type === 'volunteer' || user.type === 'daycare') {
                 res.render('schedule', {user});
             } else res.render('caregiverschedule', {user});

@@ -7,9 +7,11 @@ export const addSchedule = async (request: Request, response: Response, next: Ne
     try {
         await scheduleService.addSchedule(request.body);
         
-        response.status(httpStatus.StatusCodes.OK).json({
-            message: "Schedule has been added successfully",
-        });
+        response.redirect("/user/home");
+
+        // response.status(httpStatus.StatusCodes.OK).json({
+        //     message: "Schedule has been added successfully",
+        // });
     } catch (error) {
         console.error(error.stack);
         response.status(httpStatus.StatusCodes.BAD_REQUEST).json({
