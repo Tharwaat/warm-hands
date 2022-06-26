@@ -65,6 +65,8 @@ function startServer() {
         });
 
         app.get('/patient/home', async (req, res) => {
+            const user = req.app.get("user");
+            if (!user) res.redirect('/signin');
             const caregivers = await userService.fetchAllUsers("caregiver");
             const daycares = await userService.fetchAllUsers("daycare");
             const volunteers = await userService.fetchAllUsers("volunteer");
@@ -73,7 +75,9 @@ function startServer() {
         });
 
         app.get('/user/home', (req, res) => {
-            res.render('userHome', {foo: 'FOO'});
+            const user = req.app.get("user");
+            if (!user) res.redirect('/signin');
+            res.render('servicehome', {user});
         });
 
         app.listen(port, () => {

@@ -105,6 +105,7 @@
         color: #e07817;
         text-decoration: underline;
     }
+    
 .button{
         background-color: #1787e0;
         border: 2px solid #1787e0;
@@ -127,3 +128,42 @@
         background-color: #62a7df;
         border:2px solid #62a7df;
     }
+    i{
+        color: #2196f3;
+    }
+.plus{
+    margin-top: 60px;
+}
+i:hover {
+    color: rgb(210, 146, 104);
+    }
+.schedule{
+    justify-content: center;
+    align-items: center;
+    float: right;
+}
+.user{
+position: relative;
+}
+.btn{
+    background-color: #616466;
+    border: 2px solid #616466;
+    border-radius: 20px;
+    color: #fff;
+    display: block;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    cursor: pointer;
+    position: relative;
+    margin-left: 100px;
+    box-shadow: 2px 2px 3px  #777;
+    text-align: center;
+}
+.btn:hover{
+    background-color: #82868a;
+    border:2px solid #82868a;
+}

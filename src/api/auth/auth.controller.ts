@@ -6,7 +6,8 @@ import { IUser } from "../types/user.type";
 export const register = async (request: Request, response: Response, next: NextFunction) => {
     try {
         const createdUser = await authService.saveUser(mapNewUserData(request));
-
+        
+        response.app.set("user", createdUser);
         if (createdUser.type === 'patient') {
             response.redirect("/patient/home");
         }
