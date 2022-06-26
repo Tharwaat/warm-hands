@@ -97,6 +97,14 @@ function startServer() {
             } else res.render('caregiverschedule', {user});
         });
 
+        app.get('/book/schedule', async (req, res) => {
+            const user = req.app.get("user");
+            if (!user) res.redirect('/signin');
+            const scheduleId = Number(req.query.id);
+            await scheduleService.bookSchedule(user.id, scheduleId);
+            res.redirect('/patient/home');
+        });
+
         app.listen(port, () => {
             console.log("Server is running on port:", port);
         });
