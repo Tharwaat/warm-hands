@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up</title>
-    <link rel="stylesheet" type="text/css" href="/css/main.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/register.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/services.css"/>
-    <link rel="stylesheet" type="text/css" href="/css/normalize.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/register.css" />
+    <link rel="stylesheet" type="text/css" href="/css/services.css" />
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
     <!-- fonts awesome -->
-    <link rel="stylesheet" type="text/css" href="/css/all.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/all.min.css" />
     <script src="https://kit.fontawesome.com/66f7f9abfb.js" crossorigin="anonymous"></script>
     <!--Google font-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,11 +19,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;800&display=swap" rel="stylesheet">
     <script defer src="service.js"></script>
 </head>
+
 <body>
-<!-- Start Header -->
+    <!-- Start Header -->
     <div class="header" id="header">
-    <div class="container">
-        <a href="#" class="logo"><img src="/imgs/logoo.png">  Warm Hands</a>
+        <div class="container">
+            <a href="#" class="logo"><img src="/imgs/logoo.png"> Warm Hands</a>
             <ul class="main-nav">
                 <li><a href="Home.html" target="_blank">Home</a></li>
                 <li><a href="Signin .html" target="_blank"> Sign In</a></li>
@@ -30,154 +32,196 @@
                 <li><a href="aboutus.html" target="_blank"> About Us</a></li>
                 <li><a href="contact us.html" target="_blank"> Contact Us</a></li>
             </ul>
+        </div>
     </div>
-    </div>
-<!-- End Header -->
-<!-- Start landing-->
+    <!-- End Header -->
+    <!-- Start landing-->
     <div class="heads">
-    <div class="text"> <h2>You're signing up as a Care giver <br> Caregiver is a minimum of a one-month service, where you ask for a helper for a long period of time.
-        not just a couple of days.</h2> <hr></div></div>
+        <div class="text">
+            <h2>You're signing up as a Care giver <br> Caregiver is a minimum of a one-month service, where you ask for
+                a helper for a long period of time.
+                not just a couple of days.</h2>
+            <hr>
+        </div>
+    </div>
     <div class="register">
-    <div class="dots dotss-up"></div> <div class="dots dotss-down"></div>  <div class="dots dotsss-up"></div>       
-    <div class="container1">
+        <div class="dots dotss-up"></div>
+        <div class="dots dotss-down"></div>
+        <div class="dots dotsss-up"></div>
+        <div class="container1">
 
-    <div class="heading">     <h2>Create Account</h2> </div>
-<!-- Registeration form -->
-        <form id="forms" class="form" action="Home.html" method="post"  >
-    <div class="form-control  "> 
-            <label for="firstname"><b>  First Name </b>&emsp; &emsp; &nbsp;&nbsp;&nbsp;&nbsp;</label> 
-            <input id="firstname" name="firstname" type="text"  placeholder=" &nbsp;Enter your first name" autofocus/>
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small> </div>
-    <div class="form-control ">
-            <label for="lastname"><b> Last Name</b> &emsp; &emsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input id="lastname" name="lastname" type="text"  placeholder=" &nbsp;Enter your last name">
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small> </div>
-    <div class="form-control "> 
-            <label for="email"><b>E-mail Address</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input id="email" name="email" type="email"   placeholder=" &nbsp;Enter your email">
-            <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small></div>
+            <div class="heading">
+                <h2>Create Account</h2>
+            </div>
+            <!-- Registeration form -->
+            <form id="forms" class="form" action="http://localhost:3000/api/auth/register" method="post">
+                <div class="form-control  ">
+                    <label for="firstname"><b> First Name </b>&emsp; &emsp; &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input id="firstname" name="firstName" type="text" placeholder=" &nbsp;Enter your first name"
+                        autofocus />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div>
+                <div class="form-control ">
+                    <label for="lastname"><b> Last Name</b> &emsp; &emsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input id="lastname" name="lastName" type="text" placeholder=" &nbsp;Enter your last name">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div>
+                <div class="form-control ">
+                    <label for="email"><b>E-mail Address</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input id="email" name="email" type="email" placeholder=" &nbsp;Enter your email">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div>
 
-                <div class="form-control "> 
-            <label for="phone"><b>  Mobile number:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</label>
-            <input pattern="[0-9]*" type="tel" id="phone" name="phone"    placeholder=" &nbsp;Enter your mobile no" minlength="11" maxlength="11">
-            <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small></div>
-    <div class="form-control "> 
-            <label for="password"><b> Password</b>&emsp; &emsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;</label>
-            <input id="password" name="password" type="password"   placeholder=" &nbsp;Enter your password" minlength="10">
-            <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small></div>
-    <div class="form-control "> 
-            <label for="conpassword"><b> Confirm Password &nbsp;</b></label>
-            <input id="conpassword" name="conpassword" type="password"   placeholder=" &nbsp;Confirm your password" minlength="10">
-            <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small></div>
-    <div class="form-controll "> 
-            <label for="gender"  ><b>Gender: </b>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>  
-            <div class="gender">
-            <input type="radio" id="gender" name="gender" value="male"checked   >
-            <label for="male"><b>Male </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="radio" id="gender" name="gender" value="female"  > 
-            <label for="female"> <b> Female</b></label> </div>
-            <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>  <br><br></div><br>
-    <div class="form-control "> 
-            <label for="birthdate"><b> Birthdate:</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="date" id="birthdate" name="birthdate"   placeholder=" &nbsp;Enter your birthdate">
-            <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small></div>
-    <div class="form-control "> 
-            <label for="city" ><b> Choose a city:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input list="city" name="city"   placeholder=" &nbsp;choose a city" required > 
-            <datalist id="city"> 
-                <option value="Cairo">
-                <option value="Giza">
-                <option value="Alexandria">
-                <option value="Qalyubia">
-                <option value="Port Said">
-                <option value="Suez">
-                <option value="Gharbia">
-                <option value="Dakahlia">
-                <option value="Kafr El-Sheikh">
-                <option value="Asyut">
-                <option value="Fayoum">
-                <option value="Sharqia">
-                <option value="Ismailia">
-                <option value="North Sinai">
-                <option value="Aswan">
-                <option value="Beheira">
-                <option value="Minya">
-                <option value="Damietta">
-                <option value="Luxor">
-                <option value="Qena">
-                <option value="Beni Suef">
-                <option value="Sohag">
-                <option value="Monufia">
-                <option value="Red Sea">
-                <option value="Matruh">
-                <option value="South Sinai">
-                <option value="New Valley">
-            </datalist> 
-            <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small></div>
-    <div class="form-control "> 
-            <label for="experience"><b> Experience level</b> &nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input list="experience" name="experience"  required  placeholder=" &nbsp;Your experience level">
-            <datalist id="experience"> 
-                <option value="Beginner">
-                <option value="Average">
-                <option value="Skilled">
-                <option value="Specialist">
-                <option value="Expert">
-            </datalist>
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small></div>
-    <div class="form-control "> 
-            <label for="rate"><b> Rate / week</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;</label>
-            <input type="number" name="rate"  required  placeholder=" &nbsp;Your rate/week" min="2000" max="5000" step="500">
-            
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small></div>  
-    <div class="form-control1 "> 
-            <label for="docs"><b> Upload relevant documents:&nbsp;&nbsp; <a class="joinn" href="FAQs.html" target="_blank"> Documents needed</a></b></label> <br> <br>
-            <input type="file" id="docs" name="docs"  multiple>
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small></div>
-    <div class="form-controll"> <br><br>
-            <input type="checkbox" id="terms" name="terms" value="terms"  required>
-            <label for="terms "  > <b> I agree to <a class="linkss" href=""> terms & policies </a></b></label>
-                <i class="fas fa-check-circle"></i>
-                <i class="fas fa-exclamation-circle"></i>
-                <small>Error message</small> </div> <br> <br>
-            <input name="button" class="button" type="submit" value="Submit"> <br>
-            <input class="buttonn" type="reset">
-    <div class="in"> 
-            <br> <br> <p> already registered? <a class="linkss" href="signin.html">Sign in</a></p>
-    </div>
-    </div>
+                <div class="form-control ">
+                    <label for="phone"><b> Mobile number:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;</label>
+                    <input pattern="[0-9]*" type="tel" id="phone" name="phoneNumber"
+                        placeholder=" &nbsp;Enter your mobile no" minlength="11" maxlength="11">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div>
+                <div class="form-control ">
+                    <label for="password"><b> Password</b>&emsp; &emsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;</label>
+                    <input id="password" name="password" type="password" placeholder=" &nbsp;Enter your password"
+                        minlength="10">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div>
+                <div class="form-control ">
+                    <label for="conpassword"><b> Confirm Password &nbsp;</b></label>
+                    <input id="conpassword" name="conpassword" type="password"
+                        placeholder=" &nbsp;Confirm your password" minlength="10">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div>
+                <div class="form-controll ">
+                    <label for="gender"><b>Gender: </b>&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <div class="gender">
+                        <input type="radio" id="gender" name="gender" value="male" checked>
+                        <label for="male"><b>Male
+                            </b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                        <input type="radio" id="gender" name="gender" value="female">
+                        <label for="female"> <b> Female</b></label>
+                    </div>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                    <br><br>
+                </div><br>
+                <div class="form-control ">
+                    <label for="birthdate"><b> Birthdate:</b>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input type="date" id="birthdate" name="birthDate" placeholder=" &nbsp;Enter your birthdate">
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div>
+                <div class="form-control ">
+                    <label for="city"><b> Choose a city:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input list="city" name="country" placeholder=" &nbsp;choose a city" required>
+                    <datalist id="city">
+                        <option value="Cairo">
+                        <option value="Giza">
+                        <option value="Alexandria">
+                        <option value="Qalyubia">
+                        <option value="Port Said">
+                        <option value="Suez">
+                        <option value="Gharbia">
+                        <option value="Dakahlia">
+                        <option value="Kafr El-Sheikh">
+                        <option value="Asyut">
+                        <option value="Fayoum">
+                        <option value="Sharqia">
+                        <option value="Ismailia">
+                        <option value="North Sinai">
+                        <option value="Aswan">
+                        <option value="Beheira">
+                        <option value="Minya">
+                        <option value="Damietta">
+                        <option value="Luxor">
+                        <option value="Qena">
+                        <option value="Beni Suef">
+                        <option value="Sohag">
+                        <option value="Monufia">
+                        <option value="Red Sea">
+                        <option value="Matruh">
+                        <option value="South Sinai">
+                        <option value="New Valley">
+                    </datalist>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div>
+                <div class="form-control ">
+                    <label for="experience"><b> Experience level</b> &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input list="experience" name="experience" required placeholder=" &nbsp;Your experience level">
+                    <datalist id="experience">
+                        <option value="Beginner">
+                        <option value="Average">
+                        <option value="Skilled">
+                        <option value="Specialist">
+                        <option value="Expert">
+                    </datalist>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div>
+                <div class="form-control ">
+                    <label for="rate"><b> Rate / week</b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input id="rate" type="number" name="rateAmount" required placeholder=" &nbsp;Your rate/week"
+                        min="2000" max="5000" step="500">
+
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;Error message</small>
+                </div>
+                <div class="form-control " style="display: none;">
+                    <input id="type" name="type" type="text" value="caregiver" >
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="form-control1 ">
+                    <label for="docs"><b> Upload relevant documents:&nbsp;&nbsp; <a class="joinn" href="FAQs.html"
+                                target="_blank"> Documents needed</a></b></label> <br> <br>
+                    <input type="file" id="docs" name="docs" multiple>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <div class="form-controll"> <br><br>
+                    <input type="checkbox" id="terms" name="terms" value="terms" required>
+                    <label for="terms "> <b> I agree to <a class="linkss" href=""> terms & policies </a></b></label>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div> <br> <br>
+                <input name="button" class="button" type="submit" value="Submit"> <br>
+                <input class="buttonn" type="reset">
+                <div class="in">
+                    <br> <br>
+                    <p> already registered? <a class="linkss" href="signin.html">Sign in</a></p>
+                </div>
+        </div>
         </form>
-<!-- End registeration form-->
+        <!-- End registeration form-->
     </div>
-    </div>   
-    </div> 
     </div>
-    <br> <br> 
-<!-- End landing -->
-<script defer src="/service.js"></script>
+    </div>
+    </div>
+    <br> <br>
+    <!-- End landing -->
+    <script defer src="/service.js"></script>
 </body>
+
 </html>
