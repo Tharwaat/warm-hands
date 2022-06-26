@@ -15,9 +15,11 @@ const docs = document.querySelector("#docs");
 const terms = document.querySelector("#terms");
 const submit = document.querySelector("#submit");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
+  //console.log(e);
   e.preventDefault();
-  validateInputs();
+  console.log(document.getElementById("type").value);
+  //await validateInputs();
 });
 
 const validateInputs = () => {
@@ -37,63 +39,71 @@ const validateInputs = () => {
 
   if (firstnameValue === "") {
     setErrorFor(firstname, "First name cannot be empty");
+    return false;
   } else {
     setSuccessFor(firstname);
   }
   if (lastnameValue === "") {
     setErrorFor(lastname, "Last name cannot be empty");
+    return false;
   } else {
     setSuccessFor(lastname);
   }
   if (emailValue === "") {
     setErrorFor(email, "Email cannot be empty");
+    return false;
   } else if (!isEmail(emailValue)) {
     setErrorFor(email, "Not a valid email");
+    return false;
   } else {
     setSuccessFor(email);
   }
   if (phoneValue === "") {
     setErrorFor(phone, "Mobile number cannot be empty");
+    return false;
   } else {
     setSuccessFor(phone);
   }
   if (passwordValue === "") {
     setErrorFor(password, "Password cannot be empty");
+    return false;
   } else {
     setSuccessFor(password);
   }
   if (conpasswordValue === "") {
     setErrorFor(conpassword, "You must confirm password");
+    return false;
   } else if (passwordValue !== conpasswordValue) {
     setErrorFor(conpassword, "Passwords does not match");
+    return false;
   } else {
     setSuccessFor(conpassword);
   }
   if (birthdateValue === "") {
     setErrorFor(birthdate, "Birth date cannot be empty");
+    return false;
   } else {
     setSuccessFor(birthdate);
   }
   if (city ===0) {
     setErrorFor(city, "City cannot be empty");
+    return false;
   } else {
     setSuccessFor(city);
   }
   if (addressValue === "") {
     setErrorFor(address, "Address cannot be empty");
+    return false;
   } else {
     setSuccessFor(address);
   }
   if (illnesscaseValue === "") {
     setErrorFor(illnesscase, "Illness cannot be empty");
+    return false;
   } else {
     setSuccessFor(illnesscase);
   }
-  if (docsValue === "") {
-    setErrorFor(docs, "Docs cannot be empty");
-  } else {
-    setSuccessFor(docs);
-  }
+  return true;
 };
 function setErrorFor(input, message) {
   const formControl = input.parentElement;

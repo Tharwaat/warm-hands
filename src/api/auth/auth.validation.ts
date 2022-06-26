@@ -7,12 +7,15 @@ const userRegistrationSchema = Joi.object().keys({
     country: Joi.string().required(),
     gender: Joi.string().required(),
     birthDate: Joi.string(),
-    age: Joi.number().required(),
+    age: Joi.number(),
     password: Joi.string().required().min(6),
     email: Joi.string().required(),
     type: Joi.string().required().valid(["daycare", "caregiver", "patient", "volunteer"]),
     rateAmount: Joi.number().required(),
     experience: Joi.string().required(),
+    address: Joi.string(),
+    illnesscase: Joi.string(),
+    button: Joi.string(),
 });
 
 const loginSchema = Joi.object().keys({
