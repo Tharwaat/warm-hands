@@ -7,10 +7,16 @@ export const register = async (request: Request, response: Response, next: NextF
     try {
         const createdUser = await authService.saveUser(mapNewUserData(request));
 
-        response.status(httpStatus.StatusCodes.CREATED).json({
-            message: "User has been created successfully",
-            data: createdUser,
-        });
+        if (createdUser.type === 'patient') {
+            response.redirect("/patient/home");
+        }
+        else {
+            response.redirect("/user/home");
+        }
+        // response.status(httpStatus.StatusCodes.CREATED).json({
+        //     message: "User has been created successfully",
+        //     data: createdUser,
+        // });
     } catch (error) {
         console.error(error.stack);
         next(error);
