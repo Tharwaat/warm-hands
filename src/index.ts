@@ -35,6 +35,30 @@ function startServer() {
         
         app.set('view engine', 'ejs');
         
+        app.get('/signup', (req, res) => {
+            res.render('signup');
+        });
+
+        app.get('/signup/serviceprovider', (req, res) => {
+            res.render('serviceprovider');
+        });
+
+        app.get('/signup/serviceprovider/daycare', (req, res) => {
+            res.render('registerdaycare');
+        });
+
+        app.get('/signup/serviceprovider/caregiver', (req, res) => {
+            res.render('registercaregiver');
+        });
+
+        app.get('/signup/registerp', (req, res) => {
+            res.render('registerp');
+        });
+
+        app.get('/signup/registerv', (req, res) => {
+            res.render('registerv');
+        });
+
         app.get('/signin', (req, res) => {
             const isWrongCredentials = req.app.get("wrongCredentials");
             res.render('signin', {isWrongCredentials});
