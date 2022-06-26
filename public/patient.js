@@ -17,7 +17,7 @@ const submit = document.querySelector("#submit");
 
 form.addEventListener("submit", async (e) => {
   //console.log(e);
-  e.preventDefault();
+  //e.preventDefault();
   console.log(document.getElementById("type").value);
   //await validateInputs();
 });

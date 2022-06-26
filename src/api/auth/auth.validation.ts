@@ -16,6 +16,9 @@ const userRegistrationSchema = Joi.object().keys({
     address: Joi.string(),
     illnesscase: Joi.string(),
     button: Joi.string(),
+    conpassword: Joi.string().allow(null, ''),
+    docs: Joi.string().allow(null, ''),
+    terms: Joi.string().allow(null, ''),
 });
 
 const loginSchema = Joi.object().keys({
