@@ -40,9 +40,10 @@ export const deleteSchedule = async (scheduleId: number) => {
     }
 }
 
-export const fetchSchedules = async () => {
+export const fetchSchedules = async (userId?: number) => {
     try {
         const scheduleRepository = getRepository(Schedule);
+        if (userId) Promise.resolve(await scheduleRepository.find({user:{id: userId}}));
         return Promise.resolve(await scheduleRepository.find());
     } catch (error) {
         return Promise.reject(error);

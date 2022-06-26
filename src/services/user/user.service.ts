@@ -56,3 +56,12 @@ export const fetchAllUsers = async (type?: string): Promise<User[]> => {
         throw error;
     }
 }
+
+export const getUser = async (id: number): Promise<User[]> => {
+    try {
+        const userRepository = getRepository(User);
+        return Promise.resolve(await userRepository.find({id}));
+    } catch (error) {
+        throw error;
+    }
+}

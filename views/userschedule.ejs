@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule</title>
+    <link rel="stylesheet" type="text/css" href="/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="/css/services.css" />
+    <link rel="stylesheet" type="text/css" href="/css/normalize.css" />
+    <!-- fonts awesome -->
+    <link rel="stylesheet" type="text/css" href="/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/66f7f9abfb.js" crossorigin="anonymous"></script>
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+
+    <!-- Start schedule -->
+    <div class="schedule" id="schedule">
+        <h1 class="user"><%=user.firstName%>  <%=user.lastName%></h1>
+        <div class="container">
+            <%if (user.schedule.length === 0) {%>
+                <h1 class="user">No available Schedule</h1>
+            
+            <% } else { %>
+                <% for(let i=0; i < user.schedule.length; i++) { %>
+                <div class="box">
+                    <img src="" alt="" />
+                    <div class="content">
+                        <h3>Day <%=user.schedule[i].day%></h3>
+                        <p>From <%=user.schedule[i].hourFrom%> To <%=user.schedule[i].hourTo%><br></p>
+                    </div>
+    
+                    <div class="info">
+                        <a href="payment.html">Book</a>
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                </div>
+                <% } %>
+            <% } %>
+
+        </div>
+    </div>
+    </div>
+
+    <div class="spikes"></div>
+    <!-- End schedule -->
+
+    <script src="main.js"></script>
+</body>
+
+</html>

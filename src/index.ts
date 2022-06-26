@@ -1,6 +1,7 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import * as userService from "./services/user/user.service";
+import * as scheduleService from "./services/schedule/schedule.service";
 import { createConnection } from "typeorm";
 import { authRoutes } from "./api/auth/auth.routes";
 import { userRoutes } from "./api/user/user.routes";
@@ -77,8 +78,15 @@ function startServer() {
         app.get('/user/home', (req, res) => {
             const user = req.app.get("user");
             if (!user) res.redirect('/signin');
-            console.log(user);
             res.render('servicehome', {user});
+        });
+
+        app.get('/user/schedules', async (req, res) => {
+            const user = req.app.get("user");
+            if (!user) res.redirect('/signin');
+            const relatedUser = await userService.getUser(Number(req.query.id));
+            console.log(relatedUser);
+            res.render('userschedule', {user: relatedUser[0]});
         });
 
         app.get('/add/schedule', (req, res) => {
@@ -87,7 +95,6 @@ function startServer() {
             if (user.type === 'volunteer' || user.type === 'daycare') {
                 res.render('schedule', {user});
             } else res.render('caregiverschedule', {user});
-            
         });
 
         app.listen(port, () => {
