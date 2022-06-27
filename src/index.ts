@@ -77,9 +77,13 @@ function startServer() {
 
         app.get('/user/home', async (req, res) => {
             const user = req.app.get("user");
-            if (!user) res.redirect('/signin');
-            const updatedUser = await userService.getUser(user.id);
-            res.render('servicehome', {user: updatedUser[0]});
+            if (!user) {
+                res.redirect('/signin');
+            } else {
+                const updatedUser = await userService.getUser(user.id);
+                console.log(updatedUser[0].type);
+                res.render('servicehome', {user: updatedUser[0]});
+            }
         });
 
         app.get('/user/schedules', async (req, res) => {

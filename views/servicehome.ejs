@@ -87,19 +87,33 @@
         <div class="container">
             <% for(let i = 0; i < user.schedule.length; i++) { %>
                 <%if (!user.schedule[i].isBooked) {%> 
-                    <div class="box">
-                        <img src="" alt="" />
-                        <div class="content">
-                            <h3>Day: <%= user.schedule[i].day%></h3>
-                            <p>From: <%= user.schedule[i].hourFrom%> 
-                            <br>To: <%= user.schedule[i].hourTo%>
-                        </div>
-                        <div class="info">
-                            <br> <a href="">Delete</a>
-                            <i class="fas fa-long-arrow-alt-right"></i>
-                        </div>
-                    </div> 
-
+                    <%if (user.type === 'caregiver') {%> 
+                        <div class="box">
+                            <img src="" alt="" />
+                            <div class="content">
+                                <h3>Available Schedule</h3>
+                                <br>Day From: <%= user.schedule[i].dayFrom%>
+                                <br>Day To: <%= user.schedule[i].dayTo%>
+                            </div>
+                            <div class="info">
+                                <br> <a href="">Delete</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div> 
+                    <%} else {%> 
+                        <div class="box">
+                            <img src="" alt="" />
+                            <div class="content">
+                                <h3>Day: <%= user.schedule[i].day%></h3>
+                                <p>From: <%= user.schedule[i].hourFrom%> 
+                                <br>To: <%= user.schedule[i].hourTo%>
+                            </div>
+                            <div class="info">
+                                <br> <a href="">Delete</a>
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div> 
+                    <%}%>
                 <% } %>
              <% } %>
              <a class="plus" href="/add/schedule"><i class="fa-solid fa-circle-plus fa-4x"></i> </a>
