@@ -76,3 +76,16 @@ export const bookSchedule = async (patientId: number, scheduleId: number) => {
         return Promise.reject(error);
     }
 }
+
+export const getSchedule = async (scheduleId: number) => {
+    try {
+        const scheduleRepository = getRepository(Schedule);
+        return Promise.resolve(await scheduleRepository.findOne({
+            where: {
+                id: scheduleId
+            }
+        }));
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}

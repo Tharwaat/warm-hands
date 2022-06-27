@@ -86,7 +86,7 @@ function startServer() {
                 res.redirect('/signin');
             } else {
                 const updatedUser = await userService.getUser(user.id);
-                console.log(updatedUser[0].type);
+                
                 res.render('servicehome', {user: updatedUser[0]});
             }
         });
@@ -95,17 +95,24 @@ function startServer() {
             const user = req.app.get("user");
             if (!user) res.redirect('/signin');
             const relatedUser = await userService.getUser(Number(req.query.id));
-            console.log(relatedUser);
+            
             res.render('userschedule', {user: relatedUser[0]});
         });
 
         app.get('/add/schedule', (req, res) => {
             const user = req.app.get("user");
             if (!user) res.redirect('/signin');
-            console.log(user);
             if (user.type === 'volunteer' || user.type === 'daycare') {
                 res.render('schedule', {user});
             } else res.render('caregiverschedule', {user});
+        });
+
+        app.get('/book/schedule/pay', async (req, res) => {
+            const user = req.app.get("user");
+            if (!user) res.redirect('/signin');
+            const scheduleId = Number(req.query.id);
+            const schedule = await scheduleService.getSchedule(scheduleId);
+            res.render('payment', {schedule});
         });
 
         app.get('/book/schedule', async (req, res) => {
