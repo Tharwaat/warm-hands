@@ -65,6 +65,11 @@ function startServer() {
             res.render('signin', {isWrongCredentials});
         });
 
+        app.get('/signout', (req, res) => {
+            req.app.set("user", null);
+            res.redirect('/signin');
+        });
+
         app.get('/patient/home', async (req, res) => {
             const user = req.app.get("user");
             if (!user) res.redirect('/signin');
