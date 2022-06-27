@@ -11,7 +11,7 @@ export class Booking {
     @ManyToOne(()=> User, user => user.booking)
     user: User
 
-    @OneToOne(() => Schedule)
+    @OneToOne(() => Schedule, {eager: true})
     @JoinColumn()
     schedule: Schedule
 }

@@ -122,6 +122,22 @@ function startServer() {
             }
         });
 
+        app.get('/patient/bookings', async (req, res) => {
+            const user = req.app.get("user");
+            if (!user) {
+                res.redirect('/signin');
+            } else {
+                const relatedUser = await userService.getUser(user.id);
+                let bookings = [];
+                for (let i = 0; i < relatedUser[0].booking.length; i++) {
+                    const booking = relatedUser[0].booking[i];
+                    const serviceProvider = await scheduleService.getScheduleWithUser(booking.schedule.id)
+                    bookings.push(serviceProvider);
+                }
+                res.render('patientbooking', {user: relatedUser[0], bookings});
+            }
+        });
+
         app.get('/add/schedule', (req, res) => {
             const user = req.app.get("user");
             if (!user) {

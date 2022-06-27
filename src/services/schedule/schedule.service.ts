@@ -90,6 +90,20 @@ export const getSchedule = async (scheduleId: number) => {
     }
 }
 
+export const getScheduleWithUser = async (scheduleId: number) => {
+    try {
+        const scheduleRepository = getRepository(Schedule);
+        return Promise.resolve(await scheduleRepository.findOne({
+            where: {
+                id: scheduleId
+            },
+            relations: ["user"]
+        }));
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
+
 export const getPatients = async (scheduleId: number) => {
     try {
         const bookingRepository = getRepository(Booking);

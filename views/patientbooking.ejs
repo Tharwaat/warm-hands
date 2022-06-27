@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookings</title>
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/services.css" />
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <!-- fonts awesome -->
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <script src="https://kit.fontawesome.com/66f7f9abfb.js" crossorigin="anonymous"></script>
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Start Header -->
+    <div class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo"><img src="/imgs/logoo.png"> Warm Hands</a>
+            <ul class="main-nav">
+
+                <li><a href="">Hi <%=user.firstName%></a></li>
+                <li><a href="/signout"><i class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp; Log out</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- End Header -->
+    <div>
+        <!-- Start landing-->
+
+        <div class="schedule" id="schedule">
+            <h1 class="user">Bookings</h1>
+            <div class="container">
+                <% for(let i=0; i < bookings.length; i++) { %>
+                    <div class="box">
+                        <img src="" alt="" />
+                        <div class="content">
+                            <h3>Name: <%=bookings[i].user.firstName%> <%=bookings[i].user.lastName%></h3>
+                            <p>Phone number: <%=bookings[i].user.phoneNumber%>
+                            <br>Gender: <%=bookings[i].user.gender%>
+                            <%if (user.type === 'caregiver') {%>
+                                <br> Rate/Week: <%=bookings[i].user.fees%>
+                                <br> From: <%=bookings[i].dayFrom%>
+                                <br> To:   <%=bookings[i].dayTo%>
+                            <%} else {%>
+                                <br> Rate/Hour: <%=bookings[i].user.fees%>
+                                <br> Day: <%=bookings[i].day%>
+                                <br> From: <%=bookings[i].hourFrom%>
+                                <br> To: <%=bookings[i].hourTo%>
+                            <%}%>
+                            
+                        </div>    
+                    </div>
+                <% } %>
+
+                    <!-- <div class="info">
+                        <a href="">Cancel booking</a>
+
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+
+        <!-- End landing -->
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
