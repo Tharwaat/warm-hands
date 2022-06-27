@@ -23,19 +23,19 @@ function startServer() {
     try {
         const app = express();
         const router = express.Router();
-        
+
         router.use("/auth", authRoutes);
         router.use("/users", userRoutes);
         router.use("/schedule", scheduleRoutes);
-        
-        app.use(bodyParser.urlencoded({extended: true}));
+
+        app.use(bodyParser.urlencoded({ extended: true }));
         app.use(bodyParser.json());
         app.use(errors());
         app.use("/api", router);
         app.use(express.static("public"));
-        
+
         app.set('view engine', 'ejs');
-        
+
         app.get('/signup', (req, res) => {
             res.render('signup');
         });
@@ -62,7 +62,7 @@ function startServer() {
 
         app.get('/signin', (req, res) => {
             const isWrongCredentials = req.app.get("wrongCredentials");
-            res.render('signin', {isWrongCredentials});
+            res.render('signin', { isWrongCredentials });
         });
 
         app.get('/signout', (req, res) => {
@@ -77,7 +77,7 @@ function startServer() {
             const daycares = await userService.fetchAllUsers("daycare");
             const volunteers = await userService.fetchAllUsers("volunteer");
             //console.log("CG: ", caregivers, " DC: ", daycares, " V: ", volunteers);
-            res.render('patienthome', {caregivers, daycares, volunteers});
+            res.render('patienthome', { caregivers, daycares, volunteers, user });
         });
 
         app.get('/user/home', async (req, res) => {
@@ -86,25 +86,51 @@ function startServer() {
                 res.redirect('/signin');
             } else {
                 const updatedUser = await userService.getUser(user.id);
-                
-                res.render('servicehome', {user: updatedUser[0]});
+
+                res.render('servicehome', { user: updatedUser[0] });
             }
         });
 
         app.get('/user/schedules', async (req, res) => {
             const user = req.app.get("user");
-            if (!user) res.redirect('/signin');
-            const relatedUser = await userService.getUser(Number(req.query.id));
-            
-            res.render('userschedule', {user: relatedUser[0]});
+            if (!user) {
+                res.redirect('/signin');
+            } else {
+                const relatedUser = await userService.getUser(Number(req.query.id));
+
+                res.render('userschedule', { user: relatedUser[0] });
+            }
+        });
+
+        app.get('/user/bookings', async (req, res) => {
+            const user = req.app.get("user");
+            if (!user) {
+                res.redirect('/signin');
+            } else {
+                const relatedUser = await userService.getUser(user.id);
+                let bookings = [];
+                for (let i = 0; i < relatedUser[0].schedule.length; i++) {
+                    const schedule = relatedUser[0].schedule[i];
+                    if (schedule.isBooked) {
+                        const patient = await scheduleService.getPatients(schedule.id);
+
+                        bookings.push({schedule, patient: patient.user});
+                    }
+                }
+
+                res.render('servicebooking', { user: relatedUser[0], bookings });
+            }
         });
 
         app.get('/add/schedule', (req, res) => {
             const user = req.app.get("user");
-            if (!user) res.redirect('/signin');
-            if (user.type === 'volunteer' || user.type === 'daycare') {
-                res.render('schedule', {user});
-            } else res.render('caregiverschedule', {user});
+            if (!user) {
+                res.redirect('/signin');
+            } else {
+                if (user.type === 'volunteer' || user.type === 'daycare') {
+                    res.render('schedule', { user });
+                } else res.render('caregiverschedule', { user });
+            }
         });
 
         app.get('/book/schedule/pay', async (req, res) => {
@@ -112,7 +138,7 @@ function startServer() {
             if (!user) res.redirect('/signin');
             const scheduleId = Number(req.query.id);
             const schedule = await scheduleService.getSchedule(scheduleId);
-            res.render('payment', {schedule});
+            res.render('payment', { schedule });
         });
 
         app.get('/book/schedule', async (req, res) => {

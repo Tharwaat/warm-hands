@@ -8,7 +8,7 @@ export class Booking {
     @PrimaryGeneratedColumn()
     id: number
 
-    @ManyToOne(()=> User, user => user.schedule)
+    @ManyToOne(()=> User, user => user.booking)
     user: User
 
     @OneToOne(() => Schedule)

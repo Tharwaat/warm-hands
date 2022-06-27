@@ -89,3 +89,25 @@ export const getSchedule = async (scheduleId: number) => {
         return Promise.reject(error);
     }
 }
+
+export const getPatients = async (scheduleId: number) => {
+    try {
+        const bookingRepository = getRepository(Booking);
+        const userRepository = getRepository(User);
+
+        const booking = await bookingRepository.findOne({
+            where: {
+                schedule: scheduleId
+            }, 
+            relations: ["user"]
+        });
+
+        // const patient = await userRepository.findOne({
+        //     where: booking.user,
+        // });
+
+        return Promise.resolve(booking);
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
