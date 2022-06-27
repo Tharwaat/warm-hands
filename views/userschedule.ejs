@@ -32,18 +32,33 @@
                 <% for(let i=0; i < user.schedule.length; i++) { %>
                 
                     <%if (!user.schedule[i].isBooked) {%>
-                        <div class="box">
-                            <img src="" alt="" />
-                            <div class="content">
-                                <h3>Day <%=user.schedule[i].day%></h3>
-                                <p>From <%=user.schedule[i].hourFrom%> To <%=user.schedule[i].hourTo%><br></p>
+                        <%if (user.type === 'caregiver') {%> 
+                            <div class="box">
+                                <img src="" alt="" />
+                                <div class="content">
+                                    <h3>Available Schedule</h3>
+                                    <p>From <%=user.schedule[i].dayFrom%> To <%=user.schedule[i].dayTo%><br></p>
+                                </div>
+                
+                                <div class="info">
+                                    <a href="/book/schedule?id=<%=user.schedule[i].id%>">Book</a>
+                                    <i class="fas fa-long-arrow-alt-right"></i>
+                                </div>
                             </div>
-            
-                            <div class="info">
-                                <a href="/book/schedule?id=<%=user.schedule[i].id%>">Book</a>
-                                <i class="fas fa-long-arrow-alt-right"></i>
+                        <%} else {%> 
+                            <div class="box">
+                                <img src="" alt="" />
+                                <div class="content">
+                                    <h3>Day <%=user.schedule[i].day%></h3>
+                                    <p>From <%=user.schedule[i].hourFrom%> To <%=user.schedule[i].hourTo%><br></p>
+                                </div>
+                
+                                <div class="info">
+                                    <a href="/book/schedule?id=<%=user.schedule[i].id%>">Book</a>
+                                    <i class="fas fa-long-arrow-alt-right"></i>
+                                </div>
                             </div>
-                        </div>
+                        <%}%>
                     <% } %>
                 <% } %>
             <% } %>
