@@ -74,6 +74,7 @@ const mapNewUserData = (request: Request): IUser => {
             country: request.body.country,
             age: request.body.age,
             experience: request.body.experience,
+            illnesscase: request.body.illnesscase,
         };
 
         return newUser;

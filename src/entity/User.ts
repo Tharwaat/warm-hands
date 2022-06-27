@@ -65,6 +65,11 @@ export class User {
     @Column({
         nullable: true
     })
+    illnessCase: string
+
+    @Column({
+        nullable: true
+    })
     gender: string
 
     @OneToMany(() => Schedule, schedule => schedule.user,

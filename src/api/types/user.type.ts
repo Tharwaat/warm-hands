@@ -13,6 +13,7 @@ interface IUser {
     country?: string,
     experience?: string,
     age?: number,
+    illnesscase?: string,
 }
 
 export {
