@@ -116,6 +116,14 @@ function startServer() {
             res.redirect('/patient/home');
         });
 
+        app.get('/delete/schedule', async (req, res) => {
+            const user = req.app.get("user");
+            if (!user) res.redirect('/signin');
+            const scheduleId = Number(req.query.id);
+            await scheduleService.deleteSchedule(scheduleId);
+            res.redirect('/user/home');
+        });
+
         app.listen(port, () => {
             console.log("Server is running on port:", port);
         });
