@@ -27,6 +27,16 @@ export class Schedule {
     })
     isBooked: boolean
 
+    @Column({
+        nullable: true
+    })
+    dayTo: string
+
+    @Column({
+        nullable: true
+    })
+    dayFrom: string
+
     @ManyToOne(()=> User, user => user.schedule)
     user: User
 }

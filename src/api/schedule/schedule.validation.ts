@@ -1,9 +1,11 @@
 import { Joi } from "celebrate";
 
 const addScheduleSchema = Joi.object().keys({
-    hourFrom: Joi.string().required(),
-    hourTo: Joi.string().required(),
-    day: Joi.string().required(),
+    hourFrom: Joi.string(),
+    hourTo: Joi.string(),
+    day: Joi.string(),
+    dayFrom: Joi.string(),
+    dayTo: Joi.string(),
     userId: Joi.number().required(),
 });
 

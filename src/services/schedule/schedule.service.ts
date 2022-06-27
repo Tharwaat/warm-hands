@@ -15,6 +15,8 @@ export const addSchedule = async (newSchedule: any): Promise<void> => {
         scheduleToSave.day = newSchedule.day;
         scheduleToSave.hourFrom = newSchedule.hourFrom;
         scheduleToSave.hourTo = newSchedule.hourTo;
+        scheduleToSave.dayFrom = newSchedule.dayFrom;
+        scheduleToSave.dayTo = newSchedule.dayTo;
         scheduleToSave.user = user;
         
         const createdSchedule = await scheduleRepository.save(scheduleToSave);
