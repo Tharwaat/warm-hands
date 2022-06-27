@@ -173,6 +173,26 @@ function startServer() {
             res.redirect('/user/home');
         });
 
+        app.get('/', async (req, res) => {
+            res.render('home');
+        });
+
+        app.get('/aboutus', async (req, res) => {
+            res.render('aboutus');
+        });
+
+        app.get('/contactus', async (req, res) => {
+            res.render('contactus');
+        });
+
+        app.get('/faqs', async (req, res) => {
+            res.render('faqs');
+        });
+
+        app.get('/services', async (req, res) => {
+            res.render('services');
+        });
+
         app.listen(port, () => {
             console.log("Server is running on port:", port);
         });
