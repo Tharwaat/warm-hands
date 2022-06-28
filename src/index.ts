@@ -193,6 +193,20 @@ function startServer() {
             res.render('services');
         });
 
+        app.get('/admin', async (req, res) => {
+            const patients = await userService.fetchAllUsers('patient');
+            const volunteers = await userService.fetchAllUsers('volunteer');
+            const caregivers = await userService.fetchAllUsers('caregiver');
+            const daycares = await userService.fetchAllUsers('daycare');
+            const counts = {
+                patientsCount: patients.length,
+                volunteersCount: volunteers.length,
+                caregiversCount: caregivers.length,
+                daycaresCount: daycares.length,
+            }
+            res.render('admin', {counts});
+        });
+
         app.listen(port, () => {
             console.log("Server is running on port:", port);
         });

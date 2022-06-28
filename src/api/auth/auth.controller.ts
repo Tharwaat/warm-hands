@@ -8,6 +8,7 @@ export const register = async (request: Request, response: Response, next: NextF
         const createdUser = await authService.saveUser(mapNewUserData(request));
         
         response.app.set("user", createdUser);
+        console.log(createdUser.type);
         if (createdUser.type === 'patient') {
             response.redirect("/patient/home");
         }
@@ -35,6 +36,8 @@ export const login = async (request: Request, response: Response, next: NextFunc
             
             if (user.type === "daycare" || user.type === "caregiver" || user.type === "volunteer") {    
                 response.redirect("/user/home");
+            } else if (user.type === 'admin') {
+                response.redirect("/admin");
             } else {
                 response.redirect("/patient/home");
             }
