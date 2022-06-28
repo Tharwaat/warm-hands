@@ -125,3 +125,32 @@ export const getPatients = async (scheduleId: number) => {
         return Promise.reject(error);
     }
 }
+
+
+export const getDetailedBookings = async () => {
+    try {
+        const bookingRepository = getRepository(Booking);
+
+        const booking = await bookingRepository.find({
+            relations: ["user", "schedule"]
+        });
+
+        return Promise.resolve(booking);
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}
+
+export const getDetailedSchedules = async () => {
+    try {
+        const scheduleRepository = getRepository(Schedule);
+
+        const schedules = await scheduleRepository.find({
+            relations: ["user"]
+        });
+
+        return Promise.resolve(schedules);
+    } catch (error) {
+        return Promise.reject(error);
+    }
+}

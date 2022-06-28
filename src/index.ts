@@ -204,7 +204,19 @@ function startServer() {
                 caregiversCount: caregivers.length,
                 daycaresCount: daycares.length,
             }
-            res.render('admin', {counts});
+            //
+            let detailedBookings = [];
+            const bookings = await scheduleService.getDetailedBookings();
+            for (let i = 0; i < bookings.length; i++) {
+                const schedule = await scheduleService.getScheduleWithUser(bookings[i].schedule.id);
+                detailedBookings.push({
+                    booking: bookings[i],
+                    schedule
+                })
+                
+            }
+            const schedules = await scheduleService.getDetailedSchedules();
+            res.render('admin', {counts, bookings: detailedBookings, schedules});
         });
 
         app.listen(port, () => {

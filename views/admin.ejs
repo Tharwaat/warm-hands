@@ -83,21 +83,39 @@
         </div>
     </div>
     <!-- end dashboard-->
+
     <!-- start bookings-->
     <div class="bookings" id="bookings">
         <h2 class="main-title">Bookings</h2>
         <div class="container">
-            <div class="box">
+            <% for(let i=0; i < bookings.length; i++) { %>
+                <div class="box">
+                    <img src="" alt="" />
+                    <div class="content1">
+                        <h3>Patient: <%=bookings[i].booking.user.firstName%> <%=bookings[i].booking.user.lastName%></h3>
+                        <p>Phone number: <%=bookings[i].booking.user.phoneNumber%>
+                        <br>Gender: <%=bookings[i].booking.user.gender%>
+                        <%if (bookings[i].schedule.user.type === 'caregiver') {%>
+                            <br> Rate/Week: <%=bookings[i].schedule.user.fees%>
+                            <br> From: <%=bookings[i].schedule.dayFrom%>
+                            <br> To:   <%=bookings[i].schedule.dayTo%>
+                        <%} else {%>
+                            <br> Rate/Hour: <%=bookings[i].schedule.user.fees%>
+                            <br> Day: <%=bookings[i].schedule.day%>
+                            <br> From: <%=bookings[i].schedule.hourFrom%>
+                            <br> To: <%=bookings[i].schedule.hourTo%>
+                        <%}%>
+                        
+                    </div>    
+                </div>
+            <% } %>
+            <!-- <div class="box">
                 <img src="" alt="" />
                 <div class="content1">
                     <h3>Name</h3>
                     <p>Gender <br>City <br> Experience level<br>Rate/hour or day <br> Birthdate<br></p>
                 </div>
-                <div class="info">
-                    <a href="books.html">show schedule</a>
-
-                </div>
-            </div>
+            </div> -->
         </div>
         <!-- end bookings-->
         <!-- start schedule-->
