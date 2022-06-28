@@ -122,20 +122,44 @@
         <div class="schedules" id="schedules">
             <h2 class="main-title">Schedules</h2>
             <div class="container">
-                <div class="box">
+                <% for(let i=0; i < schedules.length; i++) { %>
+                    
+                    <%if (schedules[i].user.type === 'caregiver') {%> 
+                        <div class="box">
+                            <img src="" alt="" />
+                            <div class="content1">
+                                <h3>Name: <%=schedules[i].user.firstName%> <%=schedules[i].user.lastName%></h3>
+                                <p>Gender:  <%=schedules[i].user.gender%>
+                                <br>City:  <%=schedules[i].user.country%>
+                                <br>Experience level: <%=schedules[i].user.experience%>
+                                <p>From: <%=schedules[i].dayFrom%> To: <%=schedules[i].dayTo%><br></p>
+                            </div>
+                        </div>
+                    <%} else {%> 
+                        <div class="box">
+                            <img src="" alt="" />
+                            <div class="content1">
+                                <h3>Name: <%=schedules[i].user.firstName%> <%=schedules[i].user.lastName%></h3>
+                                <p>Gender:  <%=schedules[i].user.gender%>
+                                <br>City:  <%=schedules[i].user.country%>
+                                <br>Experience level: <%=schedules[i].user.experience%>
+                                
+                                <h3>Day: <%=schedules[i].day%></h3>
+                                <p>From: <%=schedules[i].hourFrom%> To: <%=schedules[i].hourTo%><br></p>
+                            </div>
+                        </div>
+                    <%}%>
+                <% } %>
+                <!-- <div class="box">
                     <img src="" alt="" />
                     <div class="content1">
-                        <h3>Name</h3>
-                        <p>Gender <br>City <br> Experience level<br>Rate/hour or day <br> Birthdate<br></p>
+                        <br>Rate/hour or day <br> Birthdate<br></p>
                     </div>
-                    <div class="info">
-                        <a href="scheduleadmin.html">show schedule</a>
-
-                    </div>
-                </div>
+                </div> -->
                 <!-- end schedule-->
 
-                <script src="main.js"></script>
+            </div>
+        </div>
 </body>
 
 </html>
